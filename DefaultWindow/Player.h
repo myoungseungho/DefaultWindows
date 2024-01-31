@@ -1,5 +1,6 @@
 #pragma once
 #include "Obj.h"
+#include "Bullet.h"
 class CPlayer :	public CObj
 {
 public:
@@ -11,8 +12,14 @@ public:
 	virtual void Update() override;
 	virtual void Render(HDC hDC) override;
 	virtual void Release() override;
+public:
+	void SetBullet(list<CObj*>*);
+	CObj* CreateBullet(DIRECTION);
 
 private:
 	void		Key_Input();
+
+private:
+	list<CObj*>* m_pBullet;
 };
 

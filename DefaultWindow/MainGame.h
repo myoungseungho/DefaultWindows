@@ -2,7 +2,7 @@
 
 #include "Define.h"
 #include "Player.h"
-
+#include "Bullet.h"
 class CMainGame
 {
 public:
@@ -17,7 +17,7 @@ public:
 
 private:
 	HDC			m_DC;
-	CObj*		m_pPlayer;
-
+	CObj* m_pPlayer;
+	list<CObj*> m_listBullet;
 };
 

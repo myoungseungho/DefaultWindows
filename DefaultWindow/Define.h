@@ -29,5 +29,17 @@ typedef struct tagInfo
 }INFO;
 
 
+enum DIRECTION
+{
+	DIR_LEFT,
+	DIR_UP,
+	DIR_RIGHT,
+	DIR_DOWN,
+	DIR_LUP,
+	DIR_RUP,
+	DIR_LDOWN,
+	DIR_RDOWN,
+	DIR_END
+};
 
 extern HWND g_hWnd;
