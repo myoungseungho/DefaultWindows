@@ -25,6 +25,9 @@
     <Filter Include="01. Obj\01. Bullet">
       <UniqueIdentifier>{9b8e2a99-08ab-48d7-a055-7205e3fca7f1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\02. Monster">
+      <UniqueIdentifier>{169e3b21-9819-47c5-8031-2bc870a83145}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -57,6 +60,9 @@
     <ClInclude Include="Bullet.h">
       <Filter>01. Obj\01. Bullet</Filter>
     </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>01. Obj\02. Monster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -76,6 +82,9 @@
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
       <Filter>01. Obj\01. Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>01. Obj\02. Monster</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

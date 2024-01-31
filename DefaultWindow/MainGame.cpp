@@ -3,7 +3,7 @@
 
 
 CMainGame::CMainGame()
-	: m_pPlayer(nullptr), m_DC(NULL)
+	: m_pPlayer(nullptr), m_DC(NULL), m_pMonster(nullptr)
 {
 }
 
@@ -22,20 +22,42 @@ void CMainGame::Initialize()
 		m_pPlayer->Initialize();
 	}
 
+	if (!m_pMonster)
+	{
+		m_pMonster = new CMonster;
+		m_pMonster->Initialize();
+	}
+
 	dynamic_cast<CPlayer*>(m_pPlayer)->SetBullet(&m_listBullet);
 }
 
 void CMainGame::Update()
 {
 	m_pPlayer->Update();
+	m_pMonster->Update();
 
 	for (auto iter = m_listBullet.begin();iter != m_listBullet.end();)
 	{
 		//총알 Update
 		(*iter)->Update();
-		
+
 		//충돌 체크
-		Collision(iter);
+		bool isCollision = Collision(*iter);
+		if (isCollision)
+		{
+			Safe_Delete(*iter);
+			iter = m_listBullet.erase(iter);
+		}
+		else
+		{
+			++iter;
+		}
+	}
+
+	bool isMonsterCollision = Collision(m_pMonster);
+	if (isMonsterCollision)
+	{
+		dynamic_cast<CMonster*>(m_pMonster)->TransitionState();
 	}
 }
 
@@ -45,6 +67,7 @@ void CMainGame::Render()
 	Rectangle(m_DC, (WINCX - WINCX_SMALL) * 0.5, (WINCY - WINCY_SMALL) * 0.5, WINCX - ((WINCX - WINCX_SMALL) * 0.5), WINCY - ((WINCY - WINCY_SMALL) * 0.5));
 
 	m_pPlayer->Render(m_DC);
+	m_pMonster->Render(m_DC);
 
 	for (auto& iter : m_listBullet)
 	{
@@ -58,9 +81,9 @@ void CMainGame::Release()
 	ReleaseDC(g_hWnd, m_DC);
 }
 
-void CMainGame::Collision(list<CObj*>::iterator& iter)
+bool CMainGame::Collision(CObj* _pCObj)
 {
-	INFO info = (*iter)->Get_Info();
+	INFO info = _pCObj->Get_Info();
 	float fLeftX = info.fX - (info.fCX * 0.5f);
 	float fUpY = info.fY - (info.fCY * 0.5f);
 	float fRightX = info.fX + (info.fCX * 0.5f);
@@ -68,13 +91,8 @@ void CMainGame::Collision(list<CObj*>::iterator& iter)
 
 	//충돌조건
 	if (fLeftX <= (WINCX - WINCX_SMALL) * 0.5 || fRightX >= WINCX - ((WINCX - WINCX_SMALL) * 0.5) || fUpY <= (WINCY - WINCY_SMALL) * 0.5 || fDownY >= WINCY - ((WINCY - WINCY_SMALL) * 0.5))
-	{
-		Safe_Delete(*iter);
-		iter = m_listBullet.erase(iter);
-	}
+		return true;
 	else
-	{
-		++iter;
-	}
+		return false;
 }
 

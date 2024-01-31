@@ -3,6 +3,7 @@
 #include "Define.h"
 #include "Player.h"
 #include "Bullet.h"
+#include "Monster.h"
 class CMainGame
 {
 public:
@@ -15,10 +16,11 @@ public:
 	void		Render();
 	void		Release();
 private:
-	void		Collision(list<CObj*>::iterator&);
+	bool		Collision(CObj*);
 private:
 	HDC			m_DC;
 	CObj* m_pPlayer;
+	CObj* m_pMonster;
 	list<CObj*> m_listBullet;
 };
 
