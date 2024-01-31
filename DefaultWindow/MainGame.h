@@ -14,7 +14,8 @@ public:
 	void		Update();
 	void		Render();
 	void		Release();
-
+private:
+	void		Collision(list<CObj*>::iterator&);
 private:
 	HDC			m_DC;
 	CObj* m_pPlayer;

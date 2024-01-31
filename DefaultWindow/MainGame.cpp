@@ -28,9 +28,14 @@ void CMainGame::Initialize()
 void CMainGame::Update()
 {
 	m_pPlayer->Update();
-	for (auto& iter : m_listBullet)
+
+	for (auto iter = m_listBullet.begin();iter != m_listBullet.end();)
 	{
-		iter->Update();
+		//총알 Update
+		(*iter)->Update();
+		
+		//충돌 체크
+		Collision(iter);
 	}
 }
 
@@ -52,3 +57,24 @@ void CMainGame::Release()
 	Safe_Delete<CObj*>(m_pPlayer);
 	ReleaseDC(g_hWnd, m_DC);
 }
+
+void CMainGame::Collision(list<CObj*>::iterator& iter)
+{
+	INFO info = (*iter)->Get_Info();
+	float fLeftX = info.fX - (info.fCX * 0.5f);
+	float fUpY = info.fY - (info.fCY * 0.5f);
+	float fRightX = info.fX + (info.fCX * 0.5f);
+	float fDownY = info.fY + (info.fCY * 0.5f);
+
+	//충돌조건
+	if (fLeftX <= (WINCX - WINCX_SMALL) * 0.5 || fRightX >= WINCX - ((WINCX - WINCX_SMALL) * 0.5) || fUpY <= (WINCY - WINCY_SMALL) * 0.5 || fDownY >= WINCY - ((WINCY - WINCY_SMALL) * 0.5))
+	{
+		Safe_Delete(*iter);
+		iter = m_listBullet.erase(iter);
+	}
+	else
+	{
+		++iter;
+	}
+}
+
