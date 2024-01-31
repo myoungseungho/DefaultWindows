@@ -54,24 +54,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,				// 메모리에 할당되는 실체, 즉
     MSG msg;
 	msg.message = WM_NULL;
 
-    // 기본 메시지 루프입니다.
-  //  while (GetMessage(&msg, nullptr, 0, 0))
-  //  {
-		//// 메뉴 기능의 단축키가 제대로 작동하도록 검사하는 함수
-  //      if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
-  //      {
-		//	// TranslateMessage : 키보드 메시지를 가공하여 프로그램에서 쉽게 사용할 수 있도록 하는 함수
-  //          TranslateMessage(&msg);
-
-		//	// DispatchMessage : 시스템 큐에서 꺼낸 메시지를 프로그램의 메시지 처리 함수(WndProc)에게 전달
-  //          DispatchMessage(&msg);
-  //      }
-  //  }
-
-	// GetTickCount : 운영 체제가 동작된 시점으로부터 흐른 시간을 정수 형태로 반환
-	// 1 / 1000초의 정수 값을 반환하는 함수
-
-	DWORD	dwTime = GetTickCount();	// 500
+	DWORD	dwTime = GetTickCount64();	// 500
 
 	CMainGame		MainGame;
 	MainGame.Initialize();
@@ -94,12 +77,12 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,				// 메모리에 할당되는 실체, 즉
 		}
 		else
 		{
-			if (dwTime + 10 < GetTickCount())	
+			if (dwTime + 10 < GetTickCount64())
 			{
 				MainGame.Update();
 				MainGame.Render();
 
-				dwTime = GetTickCount();
+				dwTime = GetTickCount64();
 			}
 		}
 		

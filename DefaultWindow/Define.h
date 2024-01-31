@@ -3,6 +3,9 @@
 #define WINCX		800
 #define WINCY		600
 
+#define WINCX_SMALL		700
+#define WINCY_SMALL		500
+
 #define PURE		= 0
 
 

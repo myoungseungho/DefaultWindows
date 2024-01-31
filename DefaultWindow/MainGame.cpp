@@ -3,7 +3,7 @@
 
 
 CMainGame::CMainGame()
-	: m_pPlayer(nullptr)
+	: m_pPlayer(nullptr), m_DC(NULL)
 {
 }
 
@@ -32,13 +32,14 @@ void CMainGame::Update()
 void CMainGame::Render()
 {
 	Rectangle(m_DC, 0, 0, WINCX, WINCY);
-	
+	Rectangle(m_DC, (WINCX - WINCX_SMALL) * 0.5, (WINCY - WINCY_SMALL) * 0.5, WINCX - ((WINCX - WINCX_SMALL) * 0.5), WINCY - ((WINCY - WINCY_SMALL) * 0.5));
+
 	m_pPlayer->Render(m_DC);
 }
 
 void CMainGame::Release()
 {
 	Safe_Delete<CObj*>(m_pPlayer);
-	
+
 	ReleaseDC(g_hWnd, m_DC);
 }
