@@ -8,6 +8,7 @@
 #include "InputSystem.h"
 #include "PhysicsSystem.h"
 #include "AbstractFactory.h"
+#include "Mouse.h"
 
 class CMainGame
 {

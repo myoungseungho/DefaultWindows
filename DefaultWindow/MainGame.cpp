@@ -16,19 +16,26 @@ void CMainGame::Initialize()
 {
 	m_DC = GetDC(g_hWnd);
 
+	//플레이어
 	m_ObjList[OBJ_PLAYER].push_back(CAbstractFactory<CPlayer>::Create());
 	dynamic_cast<CPlayer*>(m_ObjList[OBJ_PLAYER].front())->SetBullet(&m_ObjList[OBJ_BULLET]);
 
+	//몬스터
 	for (size_t i = 0; i < 3; i++)
 	{
 		m_ObjList[OBJ_MONSTER].push_back(CAbstractFactory<CMonster>::Create((i + 1) * 200.f, (i + 1) * 150.f));
 	}
 	dynamic_cast<CPlayer*>(m_ObjList[OBJ_PLAYER].front())->SetMonster(&m_ObjList[OBJ_MONSTER]);
 
+	//입력시스템
 	if (!m_pInputSystem)
 		m_pInputSystem = CAbstractFactory<CInputSystem>::Create_System();
 
 	dynamic_cast<CInputSystem*>(m_pInputSystem)->SetPlayer(m_ObjList[OBJ_PLAYER].front());
+
+	//마우스
+	m_ObjList[OBJ_MOUSE].push_back(CAbstractFactory<CMouse>::Create());
+	dynamic_cast<CMouse*>(m_ObjList[OBJ_MOUSE].front())->SetMonster(&m_ObjList[OBJ_MONSTER]);
 }
 
 void CMainGame::Update()

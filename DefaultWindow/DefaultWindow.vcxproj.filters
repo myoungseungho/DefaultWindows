@@ -40,6 +40,9 @@
     <Filter Include="02. Design">
       <UniqueIdentifier>{cd54fa60-a1d5-447b-bf1c-3750059e0a2a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\03. Mouse">
+      <UniqueIdentifier>{7e0a5a3b-62b2-4234-8965-b787893e6ff0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -87,6 +90,9 @@
     <ClInclude Include="AbstractFactory.h">
       <Filter>02. Design</Filter>
     </ClInclude>
+    <ClInclude Include="Mouse.h">
+      <Filter>01. Obj\03. Mouse</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -118,6 +124,9 @@
     </ClCompile>
     <ClCompile Include="System.cpp">
       <Filter>00. MainGame\System</Filter>
+    </ClCompile>
+    <ClCompile Include="Mouse.cpp">
+      <Filter>01. Obj\03. Mouse</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
