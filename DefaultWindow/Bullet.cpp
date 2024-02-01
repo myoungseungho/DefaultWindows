@@ -71,6 +71,3 @@ void CBullet::Release()
 {
 }
 
-void CBullet::Move(DIRECTION _dir)
-{
-}

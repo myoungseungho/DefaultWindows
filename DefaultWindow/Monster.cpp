@@ -57,7 +57,3 @@ void CMonster::TransitionState()
 		break;
 	}
 }
-
-void CMonster::Move(DIRECTION)
-{
-}

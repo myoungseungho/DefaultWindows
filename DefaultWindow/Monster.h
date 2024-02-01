@@ -14,8 +14,5 @@ public:
 	void TransitionState();
 private:
 	MONSTERSTATE m_State;
-
-	// CObj을(를) 통해 상속됨
-	void Move(DIRECTION) override;
 };
 

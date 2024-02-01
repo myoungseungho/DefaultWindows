@@ -50,7 +50,6 @@ void CMainGame::Update()
 	m_pPlayer->Update();
 	m_pMonster->Update();
 	m_pInputSystem->Update();
-	m_pPhysicsSystem->Update();
 
 	for (auto iter = m_listBullet.begin();iter != m_listBullet.end();)
 	{
@@ -58,7 +57,7 @@ void CMainGame::Update()
 		(*iter)->Update();
 
 		//충돌 체크
-		bool isCollision = Collision(*iter);
+		bool isCollision = dynamic_cast<CPhysicsSystem*>(m_pPhysicsSystem)->Collision(*iter);
 		if (isCollision)
 		{
 			Safe_Delete(*iter);
@@ -70,7 +69,7 @@ void CMainGame::Update()
 		}
 	}
 
-	bool isMonsterCollision = Collision(m_pMonster);
+	bool isMonsterCollision = dynamic_cast<CPhysicsSystem*>(m_pPhysicsSystem)->Collision(m_pMonster);
 	if (isMonsterCollision)
 		dynamic_cast<CMonster*>(m_pMonster)->TransitionState();
 }
@@ -97,19 +96,3 @@ void CMainGame::Release()
 	Safe_Delete<CSystem*>(m_pPhysicsSystem);
 	ReleaseDC(g_hWnd, m_DC);
 }
-
-bool CMainGame::Collision(CObj* _pCObj)
-{
-	INFO info = _pCObj->Get_Info();
-	float fLeftX = info.fX - (info.fCX * 0.5f);
-	float fUpY = info.fY - (info.fCY * 0.5f);
-	float fRightX = info.fX + (info.fCX * 0.5f);
-	float fDownY = info.fY + (info.fCY * 0.5f);
-
-	//충돌조건
-	if (fLeftX <= (WINCX - WINCX_SMALL) * 0.5 || fRightX >= WINCX - ((WINCX - WINCX_SMALL) * 0.5) || fUpY <= (WINCY - WINCY_SMALL) * 0.5 || fDownY >= WINCY - ((WINCY - WINCY_SMALL) * 0.5))
-		return true;
-	else
-		return false;
-}
-

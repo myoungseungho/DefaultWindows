@@ -18,8 +18,7 @@ public:
 	void		Update();
 	void		Render();
 	void		Release();
-private:
-	bool		Collision(CObj*);
+
 private:
 	HDC			m_DC;
 	CObj* m_pPlayer;

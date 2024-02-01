@@ -31,16 +31,16 @@ void CInputSystem::SetPlayer(CObj* _pPlayer)
 void CInputSystem::PlayerUpdate()
 {
 	if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
-		m_pPlayerCopy->Move(DIR_RIGHT);
+		dynamic_cast<CPlayer*>(m_pPlayerCopy)->Move(DIR_RIGHT);
 
 	if (GetAsyncKeyState(VK_LEFT) & 0x8000)
-		m_pPlayerCopy->Move(DIR_LEFT);
+		dynamic_cast<CPlayer*>(m_pPlayerCopy)->Move(DIR_LEFT);
 
 	if (GetAsyncKeyState(VK_UP) & 0x8000)
-		m_pPlayerCopy->Move(DIR_UP);
+		dynamic_cast<CPlayer*>(m_pPlayerCopy)->Move(DIR_UP);
 
 	if (GetAsyncKeyState(VK_DOWN) & 0x8000)
-		m_pPlayerCopy->Move(DIR_DOWN);
+		dynamic_cast<CPlayer*>(m_pPlayerCopy)->Move(DIR_DOWN);
 
 	if (GetAsyncKeyState('A') & 0x8000)
 		dynamic_cast<CPlayer*>(m_pPlayerCopy)->SpawnBullet(DIR_LEFT);

@@ -1,25 +1,14 @@
-﻿  DefaultWindow.cpp
-C:\Users\명승호\Downloads\DefaultWindow\DefaultWindow\DefaultWindow.cpp(57,15): warning C4244: '초기화 중': 'ULONGLONG'에서 'DWORD'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/DefaultWindow.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\명승호\Downloads\DefaultWindow\DefaultWindow\DefaultWindow.cpp(85,28): warning C4244: '=': 'ULONGLONG'에서 'DWORD'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/DefaultWindow.cpp'을(를) 컴파일하는 중)
-  
-  InputSystem.cpp
-  MainGame.cpp
-C:\Users\명승호\Downloads\DefaultWindow\DefaultWindow\MainGame.cpp(81,121): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+﻿  MainGame.cpp
+C:\Users\명승호\Downloads\DefaultWindow\DefaultWindow\MainGame.cpp(80,121): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 '/MainGame.cpp'을(를) 컴파일하는 중)
   
-C:\Users\명승호\Downloads\DefaultWindow\DefaultWindow\MainGame.cpp(81,82): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\명승호\Downloads\DefaultWindow\DefaultWindow\MainGame.cpp(80,82): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 '/MainGame.cpp'을(를) 컴파일하는 중)
   
-C:\Users\명승호\Downloads\DefaultWindow\DefaultWindow\MainGame.cpp(81,69): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\명승호\Downloads\DefaultWindow\DefaultWindow\MainGame.cpp(80,69): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 '/MainGame.cpp'을(를) 컴파일하는 중)
   
-C:\Users\명승호\Downloads\DefaultWindow\DefaultWindow\MainGame.cpp(81,40): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\명승호\Downloads\DefaultWindow\DefaultWindow\MainGame.cpp(80,40): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 '/MainGame.cpp'을(를) 컴파일하는 중)
   
-  Monster.cpp
-  Player.cpp
-  코드를 생성하고 있습니다...
   DefaultWindow.vcxproj -> C:\Users\명승호\Downloads\DefaultWindow\Debug\DefaultWindow.exe

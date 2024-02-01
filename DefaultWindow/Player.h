@@ -15,7 +15,7 @@ public:
 public:
 	void SetBullet(list<CObj*>*);
 	CObj* CreateBullet(DIRECTION);
-	void Move(DIRECTION) override;
+	void Move(DIRECTION);
 	void SpawnBullet(DIRECTION);
 
 private:

@@ -23,7 +23,6 @@ public:
 	virtual void Update()			PURE;
 	virtual void Render(HDC hDC)	PURE;
 	virtual void Release()			PURE;
-	virtual void Move(DIRECTION)	PURE;
 protected:
 	void		Update_Rect();
 
