@@ -11,6 +11,7 @@ public:
 	void Update() override;
 	void Release() override;
 public:
-	bool Collision(CObj* _pCObj);
+	bool Check_Collision(CObj* _pCObj);
+	bool Check_Collision(CObj* _pCObj1, CObj* _pCObj2);
 };
 

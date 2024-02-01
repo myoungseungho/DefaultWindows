@@ -57,7 +57,8 @@ void CMainGame::Update()
 		(*iter)->Update();
 
 		//충돌 체크
-		bool isCollision = dynamic_cast<CPhysicsSystem*>(m_pPhysicsSystem)->Collision(*iter);
+		bool isCollision = dynamic_cast<CPhysicsSystem*>(m_pPhysicsSystem)->Check_Collision(*iter)
+			|| dynamic_cast<CPhysicsSystem*>(m_pPhysicsSystem)->Check_Collision(*iter, m_pMonster) ? true : false;
 		if (isCollision)
 		{
 			Safe_Delete(*iter);
@@ -69,7 +70,7 @@ void CMainGame::Update()
 		}
 	}
 
-	bool isMonsterCollision = dynamic_cast<CPhysicsSystem*>(m_pPhysicsSystem)->Collision(m_pMonster);
+	bool isMonsterCollision = dynamic_cast<CPhysicsSystem*>(m_pPhysicsSystem)->Check_Collision(m_pMonster);
 	if (isMonsterCollision)
 		dynamic_cast<CMonster*>(m_pMonster)->TransitionState();
 }
