@@ -40,11 +40,7 @@ void CMainGame::Initialize()
 
 void CMainGame::Update()
 {
-	if (m_dwTime + 30 < GetTickCount64())
-	{
-		m_pInputSystem->Update();
-		m_dwTime = GetTickCount64();
-	}
+	m_pInputSystem->Update();
 
 	//일반 Update문을 돌리되, 충돌검사 이후에 해당 OBj가 OBJ_DEAD라면 컨테이너에서 삭제
 	for (unsigned int i = 0; i < OBJ_END; i++)
@@ -60,6 +56,16 @@ void CMainGame::Update()
 			else
 				++iter;
 		}
+	}
+
+	if (m_ObjList[OBJ_MONSTER].size() == 0)
+	{
+		//몬스터
+		for (size_t i = 0; i < 3; i++)
+		{
+			m_ObjList[OBJ_MONSTER].push_back(CAbstractFactory<CMonster>::Create((i + 1) * 200.f, (i + 1) * 150.f));
+		}
+		dynamic_cast<CPlayer*>(m_ObjList[OBJ_PLAYER].front())->SetMonster(&m_ObjList[OBJ_MONSTER]);
 	}
 }
 
@@ -90,15 +96,23 @@ void CMainGame::Render()
 	}
 
 	TCHAR	szBuff[32] = L"";
+	TCHAR	szBuff2[32] = L"";
 
 	// wsprintf(szBuff, L"Bullet : %d", m_ObjList[OBJ_BULLET].size()); // 모든 서식 문자를 지원하지 않음
 	swprintf_s(szBuff, L"총알 : %d", m_ObjList[OBJ_BULLET].size());	// 모든 서식 문자를 지원
+	swprintf_s(szBuff2, L"몬스터 : %d", m_ObjList[OBJ_MONSTER].size());	// 모든 서식 문자를 지원
 
 	TextOut(m_DC,		// 문자열을 복사할 화면 dc
 		20,			// 출력할 윈도우의 x,y 위치를 전달
 		20,
 		szBuff,		// 출력할 문자열의 시작 주소
 		lstrlen(szBuff)); // 문자열의 순수 길이
+
+	TextOut(m_DC,		// 문자열을 복사할 화면 dc
+		20,			// 출력할 윈도우의 x,y 위치를 전달
+		40,
+		szBuff2,		// 출력할 문자열의 시작 주소
+		lstrlen(szBuff2)); // 문자열의 순수 길이
 
 	//RECT rc{ 50, 50, 200, 200 };
 
