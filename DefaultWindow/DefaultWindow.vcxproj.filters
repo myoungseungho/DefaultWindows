@@ -28,6 +28,15 @@
     <Filter Include="01. Obj\02. Monster">
       <UniqueIdentifier>{169e3b21-9819-47c5-8031-2bc870a83145}</UniqueIdentifier>
     </Filter>
+    <Filter Include="00. MainGame\System">
+      <UniqueIdentifier>{65990077-a97e-4a8f-8c40-fd232b5df411}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00. MainGame\System\01. InputSyStem">
+      <UniqueIdentifier>{723a0376-4c21-4e5d-bcbb-c29c53e887fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00. MainGame\System\02. PhysicsSystem">
+      <UniqueIdentifier>{81e596a0-4c58-4e38-844c-6a4e336fd6ec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -63,6 +72,15 @@
     <ClInclude Include="Monster.h">
       <Filter>01. Obj\02. Monster</Filter>
     </ClInclude>
+    <ClInclude Include="PhysicsSystem.h">
+      <Filter>00. MainGame\System\02. PhysicsSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="InputSystem.h">
+      <Filter>00. MainGame\System\01. InputSyStem</Filter>
+    </ClInclude>
+    <ClInclude Include="System.h">
+      <Filter>00. MainGame\System</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -85,6 +103,15 @@
     </ClCompile>
     <ClCompile Include="Monster.cpp">
       <Filter>01. Obj\02. Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsSystem.cpp">
+      <Filter>00. MainGame\System\02. PhysicsSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="InputSystem.cpp">
+      <Filter>00. MainGame\System\01. InputSyStem</Filter>
+    </ClCompile>
+    <ClCompile Include="System.cpp">
+      <Filter>00. MainGame\System</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
