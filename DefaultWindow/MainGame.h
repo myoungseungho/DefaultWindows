@@ -4,6 +4,9 @@
 #include "Player.h"
 #include "Bullet.h"
 #include "Monster.h"
+#include "System.h"
+#include "InputSystem.h"
+#include "PhysicsSystem.h"
 class CMainGame
 {
 public:
@@ -22,5 +25,7 @@ private:
 	CObj* m_pPlayer;
 	CObj* m_pMonster;
 	list<CObj*> m_listBullet;
+	CSystem* m_pInputSystem;
+	CSystem* m_pPhysicsSystem;
 };
 

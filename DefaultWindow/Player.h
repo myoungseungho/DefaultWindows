@@ -15,11 +15,11 @@ public:
 public:
 	void SetBullet(list<CObj*>*);
 	CObj* CreateBullet(DIRECTION);
-
-private:
-	void		Key_Input();
+	void Move(DIRECTION) override;
+	void SpawnBullet(DIRECTION);
 
 private:
 	list<CObj*>* m_pBullet;
+
 };
 

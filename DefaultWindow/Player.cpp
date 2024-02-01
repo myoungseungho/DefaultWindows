@@ -18,9 +18,6 @@ void CPlayer::Initialize()
 
 void CPlayer::Update()
 {
-
-	Key_Input();
-
 	__super::Update_Rect();
 }
 
@@ -51,46 +48,61 @@ CObj* CPlayer::CreateBullet(DIRECTION eDir)
 	return pBullet;
 }
 
-void CPlayer::Key_Input()
+
+void CPlayer::Move(DIRECTION _dir)
 {
-	if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
-		m_tInfo.fX += m_fSpeed;
-
-	if (GetAsyncKeyState(VK_LEFT) & 0x8000)
+	switch (_dir)
+	{
+	case DIR_LEFT:
 		m_tInfo.fX -= m_fSpeed;
-
-	if (GetAsyncKeyState(VK_UP) & 0x8000)
+		break;
+	case DIR_UP:
 		m_tInfo.fY -= m_fSpeed;
-
-	if (GetAsyncKeyState(VK_DOWN) & 0x8000)
+		break;
+	case DIR_RIGHT:
+		m_tInfo.fX += m_fSpeed;
+		break;
+	case DIR_DOWN:
 		m_tInfo.fY += m_fSpeed;
+		break;
+	case DIR_END:
+		break;
+	default:
+		break;
+	}
+}
 
-
-	if (GetAsyncKeyState('A') & 0x8000)
+void CPlayer::SpawnBullet(DIRECTION _dir)
+{
+	switch (_dir)
 	{
+	case DIR_LEFT:
 		m_pBullet->push_back(CreateBullet(DIR_LEFT));
-	}
-	if (GetAsyncKeyState('W') & 0x8000)
-	{
+		break;
+	case DIR_UP:
 		m_pBullet->push_back(CreateBullet(DIR_UP));
-	}
-
-	if (GetAsyncKeyState('D') & 0x8000)
-	{
+		break;
+	case DIR_RIGHT:
 		m_pBullet->push_back(CreateBullet(DIR_RIGHT));
-	}
-
-	if (GetAsyncKeyState('S') & 0x8000)
-	{
+		break;
+	case DIR_DOWN:
 		m_pBullet->push_back(CreateBullet(DIR_DOWN));
-	}
-
-	if (GetAsyncKeyState(VK_SPACE) & 0x8000)
-	{
+		break;
+	case DIR_LUP:
 		m_pBullet->push_back(CreateBullet(DIR_LUP));
+		break;
+	case DIR_RUP:
 		m_pBullet->push_back(CreateBullet(DIR_RUP));
+		break;
+	case DIR_LDOWN:
 		m_pBullet->push_back(CreateBullet(DIR_LDOWN));
+		break;
+	case DIR_RDOWN:
 		m_pBullet->push_back(CreateBullet(DIR_RDOWN));
+		break;
+	case DIR_END:
+		break;
+	default:
+		break;
 	}
-
 }

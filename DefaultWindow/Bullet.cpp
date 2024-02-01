@@ -70,3 +70,7 @@ void CBullet::Render(HDC hDC)
 void CBullet::Release()
 {
 }
+
+void CBullet::Move(DIRECTION _dir)
+{
+}
