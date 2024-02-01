@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Monster.h"
 
-CMonster::CMonster() : m_State(MONSTER_MOVE_END)
+CMonster::CMonster()
 {
 }
 
@@ -14,22 +14,24 @@ void CMonster::Initialize()
 {
 	m_tInfo = { WINCX / 2.f, WINCY / 4.f, 100.f, 100.f };
 	m_fSpeed = 10.f;
-
-	m_State = MONSTER_MOVE_LEFT;
 }
 
-void CMonster::Update()
+int CMonster::Update()
 {
-	switch (m_State)
-	{
-	case MONSTER_MOVE_LEFT:
-		m_tInfo.fX -= m_fSpeed;
-		break;
-	case MONSTER_MOVE_RIGHT:
-		m_tInfo.fX += m_fSpeed;
-		break;
-	}
+	if (m_bDead)
+		return OBJ_DEAD;
+
+	m_tInfo.fX -= m_fSpeed;
 	__super::Update_Rect();
+
+	return OBJ_NOEVENT;
+}
+
+void CMonster::Late_Update()
+{
+	//Left, Top, Right, Bottom
+	if ((m_tRect.left <= (WINCX - WINCX_SMALL) * 0.5) || m_tRect.right >= WINCX - ((WINCX - WINCX_SMALL) * 0.5))
+		m_fSpeed *= -1.f;
 }
 
 void CMonster::Render(HDC hDC)
@@ -41,19 +43,4 @@ void CMonster::Release()
 {
 }
 
-void CMonster::TransitionState()
-{
-	switch (m_State)
-	{
-	case MONSTER_MOVE_LEFT:
-		m_State = MONSTER_MOVE_RIGHT;
-		break;
-	case MONSTER_MOVE_RIGHT:
-		m_State = MONSTER_MOVE_LEFT;
-		break;
-	case MONSTER_MOVE_END:
-		break;
-	default:
-		break;
-	}
-}
+

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Player.h"
 
-CPlayer::CPlayer() :m_pBullet(nullptr)
+CPlayer::CPlayer() :m_pBulletCopy(nullptr)
 {
 }
 
@@ -16,10 +16,17 @@ void CPlayer::Initialize()
 	m_fSpeed = 10.f;
 }
 
-void CPlayer::Update()
+int CPlayer::Update()
 {
 	__super::Update_Rect();
+
+	return OBJ_NOEVENT;
 }
+
+void CPlayer::Late_Update()
+{
+}
+
 
 void CPlayer::Render(HDC hDC)
 {
@@ -32,7 +39,12 @@ void CPlayer::Release()
 
 void CPlayer::SetBullet(list<CObj*>* _pBulletList)
 {
-	m_pBullet = _pBulletList;
+	m_pBulletCopy = _pBulletList;
+}
+
+void CPlayer::SetMonster(list<CObj*>* _pMonsterList)
+{
+	m_pMonsterCopy = _pMonsterList;
 }
 
 CObj* CPlayer::CreateBullet(DIRECTION eDir)
@@ -44,6 +56,7 @@ CObj* CPlayer::CreateBullet(DIRECTION eDir)
 	pBullet->Set_Pos(m_tInfo.fX, m_tInfo.fY);
 	//방향에 따른 입력 정보
 	pBullet->Set_Dir(eDir);
+	pBullet->SetMonster(m_pMonsterCopy);
 
 	return pBullet;
 }
@@ -77,28 +90,28 @@ void CPlayer::SpawnBullet(DIRECTION _dir)
 	switch (_dir)
 	{
 	case DIR_LEFT:
-		m_pBullet->push_back(CreateBullet(DIR_LEFT));
+		m_pBulletCopy->push_back(CreateBullet(DIR_LEFT));
 		break;
 	case DIR_UP:
-		m_pBullet->push_back(CreateBullet(DIR_UP));
+		m_pBulletCopy->push_back(CreateBullet(DIR_UP));
 		break;
 	case DIR_RIGHT:
-		m_pBullet->push_back(CreateBullet(DIR_RIGHT));
+		m_pBulletCopy->push_back(CreateBullet(DIR_RIGHT));
 		break;
 	case DIR_DOWN:
-		m_pBullet->push_back(CreateBullet(DIR_DOWN));
+		m_pBulletCopy->push_back(CreateBullet(DIR_DOWN));
 		break;
 	case DIR_LUP:
-		m_pBullet->push_back(CreateBullet(DIR_LUP));
+		m_pBulletCopy->push_back(CreateBullet(DIR_LUP));
 		break;
 	case DIR_RUP:
-		m_pBullet->push_back(CreateBullet(DIR_RUP));
+		m_pBulletCopy->push_back(CreateBullet(DIR_RUP));
 		break;
 	case DIR_LDOWN:
-		m_pBullet->push_back(CreateBullet(DIR_LDOWN));
+		m_pBulletCopy->push_back(CreateBullet(DIR_LDOWN));
 		break;
 	case DIR_RDOWN:
-		m_pBullet->push_back(CreateBullet(DIR_RDOWN));
+		m_pBulletCopy->push_back(CreateBullet(DIR_RDOWN));
 		break;
 	case DIR_END:
 		break;
@@ -106,3 +119,4 @@ void CPlayer::SpawnBullet(DIRECTION _dir)
 		break;
 	}
 }
+

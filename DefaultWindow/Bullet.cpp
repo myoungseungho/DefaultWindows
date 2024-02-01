@@ -17,8 +17,11 @@ void CBullet::Initialize()
 	m_fSpeed = 3.f;
 }
 
-void CBullet::Update()
+int CBullet::Update()
 {
+	if (m_bDead)
+		return OBJ_DEAD;
+
 	switch (m_eDir)
 	{
 	case DIR_LEFT:
@@ -56,6 +59,29 @@ void CBullet::Update()
 	}
 
 	__super::Update_Rect();
+
+	return OBJ_NOEVENT;
+}
+
+void CBullet::Late_Update()
+{
+	//충돌조건
+	// 1. 박스 사각형
+	if (m_tRect.left <= (WINCX - WINCX_SMALL) * 0.5 || m_tRect.right >= WINCX - ((WINCX - WINCX_SMALL) * 0.5)
+		|| m_tRect.top <= (WINCY - WINCY_SMALL) * 0.5 || m_tRect.bottom >= WINCY - ((WINCY - WINCY_SMALL) * 0.5))
+		m_bDead = true;
+
+	// 2. 몬스터
+	for (auto iter = m_pMonsterCopy->begin();iter != m_pMonsterCopy->end();++iter)
+	{
+		const RECT* pRect = &(*iter)->Get_RECT();
+		RECT testRC;
+		if (IntersectRect(&testRC, pRect ,&m_tRect))
+		{
+			(*iter)->Update_Die();
+			m_bDead = true;
+		}
+	}
 }
 
 void CBullet::Render(HDC hDC)
@@ -69,5 +95,10 @@ void CBullet::Render(HDC hDC)
 
 void CBullet::Release()
 {
+}
+
+void CBullet::SetMonster(list<CObj*>* _pMonsterCopy)
+{
+	m_pMonsterCopy = _pMonsterCopy;
 }
 

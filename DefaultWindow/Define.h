@@ -8,6 +8,8 @@
 
 #define PURE		= 0
 
+#define			OBJ_NOEVENT	 0
+#define			OBJ_DEAD	 1
 
 template<typename T>
 void Safe_Delete(T& Temp)
@@ -44,9 +46,11 @@ enum DIRECTION
 
 extern HWND g_hWnd;
 
-enum MONSTERSTATE
+enum OBJID
 {
-	MONSTER_MOVE_LEFT,
-	MONSTER_MOVE_RIGHT,
-	MONSTER_MOVE_END
+	OBJ_PLAYER,
+	OBJ_BULLET,
+	OBJ_MONSTER,
+	//OBJ_MOUSE,
+	OBJ_END
 };

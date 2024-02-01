@@ -145,6 +145,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AbstractFactory.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="DefaultWindow.h" />
     <ClInclude Include="Define.h" />

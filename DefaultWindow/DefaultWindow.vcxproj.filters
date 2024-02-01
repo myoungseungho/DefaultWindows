@@ -37,6 +37,9 @@
     <Filter Include="00. MainGame\System\02. PhysicsSystem">
       <UniqueIdentifier>{81e596a0-4c58-4e38-844c-6a4e336fd6ec}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02. Design">
+      <UniqueIdentifier>{cd54fa60-a1d5-447b-bf1c-3750059e0a2a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -80,6 +83,9 @@
     </ClInclude>
     <ClInclude Include="System.h">
       <Filter>00. MainGame\System</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractFactory.h">
+      <Filter>02. Design</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

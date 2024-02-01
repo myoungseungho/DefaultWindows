@@ -64,7 +64,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,				// 메모리에 할당되는 실체, 즉
 		// PM_REMOVE   : 메세지를 읽어옴과 동시에 메세지 큐에서 메세지를 제거
 		// PM_NOREMOVE : 메세지 큐에 메세지가 존재하는지만 파악, 메세지를 읽어오려면 GetMessage함수를 다시 호출해야 함
 
-		if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
+  		if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
 		{
 			if (WM_QUIT == msg.message)
 				break;
@@ -80,6 +80,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,				// 메모리에 할당되는 실체, 즉
 			if (dwTime + 10 < GetTickCount64())
 			{
 				MainGame.Update();
+				MainGame.Late_Update();
 				MainGame.Render();
 
 				dwTime = GetTickCount64();
