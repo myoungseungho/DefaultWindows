@@ -56,9 +56,7 @@ void CMainGame::Update()
 
 	bool isMonsterCollision = Collision(m_pMonster);
 	if (isMonsterCollision)
-	{
 		dynamic_cast<CMonster*>(m_pMonster)->TransitionState();
-	}
 }
 
 void CMainGame::Render()
