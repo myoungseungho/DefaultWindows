@@ -43,6 +43,9 @@
     <Filter Include="01. Obj\03. Mouse">
       <UniqueIdentifier>{7e0a5a3b-62b2-4234-8965-b787893e6ff0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02. Design\CollisionMgr">
+      <UniqueIdentifier>{9e45cbff-7f9e-472f-a350-807f7cc2ce90}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -93,6 +96,9 @@
     <ClInclude Include="Mouse.h">
       <Filter>01. Obj\03. Mouse</Filter>
     </ClInclude>
+    <ClInclude Include="CollisionMgr.h">
+      <Filter>02. Design\CollisionMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -127,6 +133,9 @@
     </ClCompile>
     <ClCompile Include="Mouse.cpp">
       <Filter>01. Obj\03. Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionMgr.cpp">
+      <Filter>02. Design\CollisionMgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

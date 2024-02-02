@@ -9,6 +9,7 @@
 #include "PhysicsSystem.h"
 #include "AbstractFactory.h"
 #include "Mouse.h"
+#include "CollisionMgr.h"
 
 class CMainGame
 {
