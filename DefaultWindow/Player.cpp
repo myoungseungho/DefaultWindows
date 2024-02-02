@@ -82,13 +82,15 @@ void CPlayer::Move(DIRECTION _dir)
 		++m_degreeCount;
 		break;
 	case DIR_UP:
-		m_tInfo.fY -= m_fSpeed;
+		m_tInfo.fX += ((m_directionX - m_tInfo.fX) / 100) * m_fSpeed;
+		m_tInfo.fY += ((m_directionY - m_tInfo.fY) / 100) * m_fSpeed;
 		break;
 	case DIR_RIGHT:
 		--m_degreeCount;
 		break;
 	case DIR_DOWN:
-		m_tInfo.fY += m_fSpeed;
+		m_tInfo.fX -= ((m_directionX - m_tInfo.fX) / 100) * m_fSpeed;
+		m_tInfo.fY -= ((m_directionY - m_tInfo.fY) / 100) * m_fSpeed;
 		break;
 	case DIR_END:
 		break;
