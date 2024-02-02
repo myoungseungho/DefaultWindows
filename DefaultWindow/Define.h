@@ -11,6 +11,8 @@
 #define			OBJ_NOEVENT	 0
 #define			OBJ_DEAD	 1
 
+#define PI			3.14f
+
 template<typename T>
 void Safe_Delete(T& Temp)
 {

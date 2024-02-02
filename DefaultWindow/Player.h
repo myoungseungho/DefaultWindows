@@ -14,9 +14,10 @@ public:
 	virtual void Render(HDC hDC) override;
 	virtual void Release() override;
 public:
+	CObj* CreateBullet(DIRECTION);
+
 	void SetBullet(list<CObj*>*);
 	void SetMonster(list<CObj*>*);
-	CObj* CreateBullet(DIRECTION);
 	void Move(DIRECTION);
 	void SpawnBullet(DIRECTION);
 
@@ -24,5 +25,10 @@ private:
 	list<CObj*>* m_pBulletCopy;
 	list<CObj*>* m_pMonsterCopy;
 
+	long m_directionX;
+	long m_directionY;
+	float m_Radius;
+	float m_degree;
+	int m_degreeCount;
 };
 
