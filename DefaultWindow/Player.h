@@ -27,6 +27,7 @@ private:
 
 	long m_directionX;
 	long m_directionY;
+
 	float m_Radius;
 	float m_degree;
 	int m_degreeCount;

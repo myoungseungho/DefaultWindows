@@ -13,7 +13,13 @@ public:
 	void Release() override;
 public:
 	void SetMonster(list<CObj*>*);
+	void SetDestination(float,float);
 private:
 	list<CObj*>* m_pMonsterCopy;
+
+	float m_InitX;
+	float m_InitY;
+	float m_DesX;
+	float m_DesY;
 };
 

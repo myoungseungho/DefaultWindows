@@ -28,6 +28,7 @@ int CPlayer::Update()
 
 	m_directionX = m_tInfo.fX - m_Radius * sin(m_degree * m_degreeCount);
 	m_directionY = m_tInfo.fY - m_Radius * cos(m_degree * m_degreeCount);
+
 	return OBJ_NOEVENT;
 }
 
@@ -67,6 +68,7 @@ CObj* CPlayer::CreateBullet(DIRECTION eDir)
 	//방향에 따른 입력 정보
 	pBullet->Set_Dir(eDir);
 	pBullet->SetMonster(m_pMonsterCopy);
+	pBullet->SetDestination(m_directionX, m_directionY);
 
 	return pBullet;
 }

@@ -22,19 +22,20 @@ int CBullet::Update()
 	if (m_bDead)
 		return OBJ_DEAD;
 
+
 	switch (m_eDir)
 	{
 	case DIR_LEFT:
-		m_tInfo.fX -= m_fSpeed;
 		break;
 	case DIR_UP:
-		m_tInfo.fY -= m_fSpeed;
+		m_tInfo.fX += (m_DesX - m_InitX) / 100 * m_fSpeed;
+		m_tInfo.fY += (m_DesY - m_InitY) / 100 * m_fSpeed;
 		break;
 	case DIR_RIGHT:
-		m_tInfo.fX += m_fSpeed;
 		break;
 	case DIR_DOWN:
-		m_tInfo.fY += m_fSpeed;
+		m_tInfo.fX -= (m_DesX - m_InitX) / 100 * m_fSpeed;
+		m_tInfo.fY -= (m_DesY - m_InitY) / 100 * m_fSpeed;
 		break;
 	case DIR_LUP:
 		m_tInfo.fX -= m_fSpeed;
@@ -88,5 +89,13 @@ void CBullet::Release()
 void CBullet::SetMonster(list<CObj*>* _pMonsterCopy)
 {
 	m_pMonsterCopy = _pMonsterCopy;
+}
+
+void CBullet::SetDestination(float x, float y)
+{
+	m_DesX = x;
+	m_DesY = y;
+	m_InitX = m_tInfo.fX;
+	m_InitY = m_tInfo.fY;
 }
 
