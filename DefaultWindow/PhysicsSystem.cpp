@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "PhysicsSystem.h"
 
-CPhysicsSystem::CPhysicsSystem()
+CPhysicsSystem::CPhysicsSystem() : m_pObjCopy(nullptr)
 {
 }
 
@@ -15,6 +15,65 @@ void CPhysicsSystem::Initialize()
 
 void CPhysicsSystem::Update()
 {
+}
+
+
+void CPhysicsSystem::Late_Update()
+{
+	if (m_pObjCopy == nullptr)
+		return;
+
+	//총알 검사
+	for (auto bulletIter = (m_pObjCopy)[OBJ_BULLET].begin(); bulletIter != (m_pObjCopy)[OBJ_BULLET].end();)
+	{
+		bool bBulletDead = false;
+		RECT bulletRect = (*bulletIter)->Get_RECT();
+
+		//사각형 검사
+		if (bulletRect.left <= (WINCX - WINCX_SMALL) * 0.5 || bulletRect.right >= WINCX - ((WINCX - WINCX_SMALL) * 0.5)
+			|| bulletRect.top <= (WINCY - WINCY_SMALL) * 0.5 || bulletRect.bottom >= WINCY - ((WINCY - WINCY_SMALL) * 0.5))
+		{
+			(*bulletIter)->Update_Die();
+			bulletIter = (m_pObjCopy)[OBJ_BULLET].erase(bulletIter);
+			bBulletDead = true;
+		}
+
+		if (!bBulletDead)
+		{
+			//총알 죽지 않으면 Monster 검사
+			for (auto monsterIter = (m_pObjCopy)[OBJ_MONSTER].begin(); monsterIter != (m_pObjCopy)[OBJ_MONSTER].end(); ++monsterIter)
+			{
+				const RECT* monsterRect = &(*monsterIter)->Get_RECT();
+				RECT testRC;
+				if (IntersectRect(&testRC, monsterRect, &bulletRect))
+				{
+					(*monsterIter)->Update_Die();
+					(*bulletIter)->Update_Die();
+					bulletIter = (m_pObjCopy)[OBJ_BULLET].erase(bulletIter);
+					bBulletDead = true;
+					break;
+				}
+			}
+		}
+
+		if (!bBulletDead)
+			++bulletIter;
+	}
+
+	//마우스 검사
+	for (auto monsterIter = (m_pObjCopy)[OBJ_MONSTER].begin();monsterIter != (m_pObjCopy)[OBJ_MONSTER].end();)
+	{
+		RECT testRC;
+		const RECT* pRect = &(*monsterIter)->Get_RECT();
+		const RECT* mRect = &(m_pObjCopy)[OBJ_MOUSE].front()->Get_RECT();
+		if (IntersectRect(&testRC, pRect, mRect))
+		{
+			(*monsterIter)->Update_Die();
+			monsterIter = (m_pObjCopy)[OBJ_MONSTER].erase(monsterIter);
+		}
+		else
+			++monsterIter;
+	}
 }
 
 void CPhysicsSystem::Release()
@@ -45,3 +104,11 @@ bool CPhysicsSystem::Check_Collision(CObj* _pCObj1, CObj* _pCObj2)
 	else
 		return false;
 }
+
+void CPhysicsSystem::SetObjList(list<CObj*>* _pList)
+{
+	m_pObjCopy = _pList;
+}
+
+
+

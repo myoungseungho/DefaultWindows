@@ -33,16 +33,16 @@ int CMouse::Update()
 
 void CMouse::Late_Update()
 {
-	// 2. 몬스터
-	for (auto iter = m_pMonsterCopy->begin();iter != m_pMonsterCopy->end();++iter)
-	{
-		const RECT* pRect = &(*iter)->Get_RECT();
-		RECT testRC;
-		if (IntersectRect(&testRC, pRect, &m_tRect))
-		{
-			(*iter)->Update_Die();
-		}
-	}
+	//// 2. 몬스터
+	//for (auto iter = m_pMonsterCopy->begin();iter != m_pMonsterCopy->end();++iter)
+	//{
+	//	const RECT* pRect = &(*iter)->Get_RECT();
+	//	RECT testRC;
+	//	if (IntersectRect(&testRC, pRect, &m_tRect))
+	//	{
+	//		(*iter)->Update_Die();
+	//	}
+	//}
 }
 
 void CMouse::Render(HDC hDC)

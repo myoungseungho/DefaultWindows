@@ -65,23 +65,23 @@ int CBullet::Update()
 
 void CBullet::Late_Update()
 {
-	//충돌조건
-	// 1. 박스 사각형
-	if (m_tRect.left <= (WINCX - WINCX_SMALL) * 0.5 || m_tRect.right >= WINCX - ((WINCX - WINCX_SMALL) * 0.5)
-		|| m_tRect.top <= (WINCY - WINCY_SMALL) * 0.5 || m_tRect.bottom >= WINCY - ((WINCY - WINCY_SMALL) * 0.5))
-		m_bDead = true;
+	////충돌조건
+	//// 1. 박스 사각형
+	//if (m_tRect.left <= (WINCX - WINCX_SMALL) * 0.5 || m_tRect.right >= WINCX - ((WINCX - WINCX_SMALL) * 0.5)
+	//	|| m_tRect.top <= (WINCY - WINCY_SMALL) * 0.5 || m_tRect.bottom >= WINCY - ((WINCY - WINCY_SMALL) * 0.5))
+	//	m_bDead = true;
 
-	// 2. 몬스터
-	for (auto iter = m_pMonsterCopy->begin();iter != m_pMonsterCopy->end();++iter)
-	{
-		const RECT* pRect = &(*iter)->Get_RECT();
-		RECT testRC;
-		if (IntersectRect(&testRC, pRect ,&m_tRect))
-		{
-			(*iter)->Update_Die();
-			m_bDead = true;
-		}
-	}
+	//// 2. 몬스터
+	//for (auto iter = m_pMonsterCopy->begin();iter != m_pMonsterCopy->end();++iter)
+	//{
+	//	const RECT* pRect = &(*iter)->Get_RECT();
+	//	RECT testRC;
+	//	if (IntersectRect(&testRC, pRect ,&m_tRect))
+	//	{
+	//		(*iter)->Update_Die();
+	//		m_bDead = true;
+	//	}
+	//}
 }
 
 void CBullet::Render(HDC hDC)

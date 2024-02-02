@@ -36,6 +36,11 @@ void CMainGame::Initialize()
 	//¸¶¿ì½º
 	m_ObjList[OBJ_MOUSE].push_back(CAbstractFactory<CMouse>::Create());
 	dynamic_cast<CMouse*>(m_ObjList[OBJ_MOUSE].front())->SetMonster(&m_ObjList[OBJ_MONSTER]);
+
+	if (!m_pPhysicsSystem)
+		m_pPhysicsSystem = CAbstractFactory<CPhysicsSystem>::Create_System();
+
+	dynamic_cast<CPhysicsSystem*>(m_pPhysicsSystem)->SetObjList(m_ObjList);
 }
 
 void CMainGame::Update()
@@ -78,6 +83,8 @@ void CMainGame::Late_Update()
 			iter->Late_Update();
 		}
 	}
+
+	m_pPhysicsSystem->Late_Update();
 }
 
 void CMainGame::Render()

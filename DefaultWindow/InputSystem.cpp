@@ -19,6 +19,11 @@ void CInputSystem::Update()
 	PlayerUpdate();
 }
 
+void CInputSystem::Late_Update()
+{
+}
+
+
 void CInputSystem::Release()
 {
 }
@@ -59,3 +64,4 @@ void CInputSystem::PlayerUpdate()
 		dynamic_cast<CPlayer*>(m_pPlayerCopy)->SpawnBullet(DIR_RDOWN);
 	}
 }
+

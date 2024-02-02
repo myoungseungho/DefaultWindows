@@ -10,6 +10,7 @@ public:
 
 	virtual void Initialize()		PURE;
 	virtual void Update()			PURE;
+	virtual void Late_Update()		PURE;
 	virtual void Release()			PURE;
 };
 

@@ -13,5 +13,11 @@ public:
 public:
 	bool Check_Collision(CObj* _pCObj);
 	bool Check_Collision(CObj* _pCObj1, CObj* _pCObj2);
+	void SetObjList(list<CObj*>*);
+private:
+	list<CObj*>* m_pObjCopy;
+
+	// CSystem을(를) 통해 상속됨
+	void Late_Update() override;
 };
 

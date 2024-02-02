@@ -17,5 +17,8 @@ private:
 	void PlayerUpdate();
 private:
 	CObj* m_pPlayerCopy;
+
+	// CSystem을(를) 통해 상속됨
+	void Late_Update() override;
 };
 
