@@ -14,7 +14,7 @@ void CBullet::Initialize()
 {
 	m_tInfo.fCX = 30.f;
 	m_tInfo.fCY = 30.f;
-	m_fSpeed = 5.f;
+	m_fSpeed = 8.f;
 }
 
 int CBullet::Update()

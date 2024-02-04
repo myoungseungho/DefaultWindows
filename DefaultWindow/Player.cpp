@@ -18,7 +18,7 @@ void CPlayer::Initialize()
 
 	m_directionX = m_tInfo.fX;
 	m_directionY = m_tRect.top;
-	m_degree = PI / 180.f;
+	m_degree = (3 * PI) / 180.f;
 	m_Radius = m_tInfo.fCX * 0.5f;
 }
 
