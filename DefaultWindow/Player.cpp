@@ -72,7 +72,7 @@ void CPlayer::SetMonster(list<CObj*>* _pMonsterList)
 
 CObj* CPlayer::CreateBullet(DIRECTION eDir)
 {
-	CBullet* pBullet = new CBullet;
+	CBullet* pBullet = new CBullet(BULLET_SCREW);
 	pBullet->Initialize();
 	//Bullet의 소유권을 갖고 있는 Player의 중심좌표로 설정.
 	//FirePosition을 설정

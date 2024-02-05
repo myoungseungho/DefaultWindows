@@ -1,8 +1,11 @@
 #include "stdafx.h"
 #include "Bullet.h"
 
-CBullet::CBullet() : m_FirePositionX(0.f), m_FirePositionY(0.f)
+
+CBullet::CBullet(BULLETMODE _bulletMode) :m_FirePositionX(0.f), m_FirePositionY(0.f), m_fDegree(0.f), m_fSmallRadius(0.f),
+m_directionX(0.f), m_directionY(0.f), m_degreeCount(1)
 {
+	m_BulletMode = _bulletMode;
 }
 
 CBullet::~CBullet()
@@ -14,14 +17,18 @@ void CBullet::Initialize()
 {
 	m_tInfo.fCX = 30.f;
 	m_tInfo.fCY = 30.f;
-	m_fSpeed = 0.5f;
+	m_fSpeed = 0.05f;
+	m_fDegree = (20 * PI) / 180.f;
+	m_fSmallRadius = m_tInfo.fCX * 0.5f;
+
+	m_directionX = m_tInfo.fX - m_fSmallRadius * sin(m_fDegree * m_degreeCount);
+	m_directionY = m_tInfo.fY - m_fSmallRadius * cos(m_fDegree * m_degreeCount);
 }
 
 int CBullet::Update()
 {
 	if (m_bDead)
 		return OBJ_DEAD;
-
 
 	switch (m_eDir)
 	{
@@ -61,6 +68,10 @@ int CBullet::Update()
 
 	__super::Update_Rect();
 
+	m_degreeCount++;
+	m_directionX = m_tInfo.fX - m_fSmallRadius * sin(m_fDegree * m_degreeCount);
+	m_directionY = m_tInfo.fY - m_fSmallRadius * cos(m_fDegree * m_degreeCount);
+
 	return OBJ_NOEVENT;
 }
 
@@ -75,11 +86,27 @@ void CBullet::Late_Update()
 
 void CBullet::Render(HDC hDC)
 {
-	Ellipse(hDC,
-		m_tRect.left,
-		m_tRect.top,
-		m_tRect.right,
-		m_tRect.bottom);
+	switch (m_BulletMode)
+	{
+	case BULLET_NORMAL:
+		Ellipse(hDC,
+			m_tRect.left,
+			m_tRect.top,
+			m_tRect.right,
+			m_tRect.bottom);
+		break;
+	case BULLET_SCREW:
+		Ellipse(hDC,
+			m_directionX - m_fSmallRadius,
+			m_directionY - m_fSmallRadius,
+			m_directionX + m_fSmallRadius,
+			m_directionY + m_fSmallRadius);
+		break;
+	case BULLET_END:
+		break;
+	default:
+		break;
+	}
 }
 
 void CBullet::Release()
