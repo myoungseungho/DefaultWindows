@@ -99,6 +99,9 @@
     <ClInclude Include="CollisionMgr.h">
       <Filter>02. Design\CollisionMgr</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerSatellite.h">
+      <Filter>01. Obj\00. Player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -136,6 +139,9 @@
     </ClCompile>
     <ClCompile Include="CollisionMgr.cpp">
       <Filter>02. Design\CollisionMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerSatellite.cpp">
+      <Filter>01. Obj\00. Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

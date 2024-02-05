@@ -1,23 +1,20 @@
-﻿  Player.cpp
-C:\Users\명승호\Downloads\DefaultWindow\DefaultWindow\Player.cpp(19,24): warning C4244: '=': 'float'에서 'long'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/Player.cpp'을(를) 컴파일하는 중)
+﻿  PlayerSatellite.cpp
+C:\Users\myoun\Documents\DefaultWindows\DefaultWindow\PlayerSatellite.cpp(26,48): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/PlayerSatellite.cpp'을(를) 컴파일하는 중)
   
-C:\Users\명승호\Downloads\DefaultWindow\DefaultWindow\Player.cpp(29,28): warning C4244: '=': 'double'에서 'long'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/Player.cpp'을(를) 컴파일하는 중)
+C:\Users\myoun\Documents\DefaultWindows\DefaultWindow\PlayerSatellite.cpp(27,48): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/PlayerSatellite.cpp'을(를) 컴파일하는 중)
   
-C:\Users\명승호\Downloads\DefaultWindow\DefaultWindow\Player.cpp(30,28): warning C4244: '=': 'double'에서 'long'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/Player.cpp'을(를) 컴파일하는 중)
+C:\Users\myoun\Documents\DefaultWindows\DefaultWindow\PlayerSatellite.cpp(39,121): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/PlayerSatellite.cpp'을(를) 컴파일하는 중)
   
-C:\Users\명승호\Downloads\DefaultWindow\DefaultWindow\Player.cpp(43,35): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/Player.cpp'을(를) 컴파일하는 중)
+C:\Users\myoun\Documents\DefaultWindows\DefaultWindow\PlayerSatellite.cpp(39,90): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/PlayerSatellite.cpp'을(를) 컴파일하는 중)
   
-C:\Users\명승호\Downloads\DefaultWindow\DefaultWindow\Player.cpp(43,23): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/Player.cpp'을(를) 컴파일하는 중)
+C:\Users\myoun\Documents\DefaultWindows\DefaultWindow\PlayerSatellite.cpp(39,59): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/PlayerSatellite.cpp'을(를) 컴파일하는 중)
   
-C:\Users\명승호\Downloads\DefaultWindow\DefaultWindow\Player.cpp(71,40): warning C4244: '인수': 'long'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/Player.cpp'을(를) 컴파일하는 중)
+C:\Users\myoun\Documents\DefaultWindows\DefaultWindow\PlayerSatellite.cpp(39,28): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/PlayerSatellite.cpp'을(를) 컴파일하는 중)
   
-C:\Users\명승호\Downloads\DefaultWindow\DefaultWindow\Player.cpp(71,26): warning C4244: '인수': 'long'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/Player.cpp'을(를) 컴파일하는 중)
-  
-  DefaultWindow.vcxproj -> C:\Users\명승호\Downloads\DefaultWindow\Debug\DefaultWindow.exe
+  DefaultWindow.vcxproj -> C:\Users\myoun\Documents\DefaultWindows\Debug\DefaultWindow.exe

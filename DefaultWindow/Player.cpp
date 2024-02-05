@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Player.h"
 
-CPlayer::CPlayer() :m_pBulletCopy(nullptr), m_degree(0.f), m_degreeCount(0)
+CPlayer::CPlayer() :m_pBulletCopy(nullptr), m_degree(0.f), m_degreeCount(0), m_Satellite(nullptr)
 {
 }
 
@@ -20,11 +20,19 @@ void CPlayer::Initialize()
 	m_directionY = m_tRect.top;
 	m_degree = (3 * PI) / 180.f;
 	m_Radius = m_tInfo.fCX * 0.5f;
+
+	if (m_Satellite == nullptr)
+		m_Satellite = new CPlayerSatellite;
+
+	m_Satellite->Initialize();
+	m_Satellite->Set_Pos(m_tInfo.fX, m_tInfo.fY);
+	dynamic_cast<CPlayerSatellite*>(m_Satellite)->SetPlayer(dynamic_cast<CPlayer*>(this));
 }
 
 int CPlayer::Update()
 {
 	__super::Update_Rect();
+	m_Satellite->Update();
 
 	m_directionX = m_tInfo.fX - m_Radius * sin(m_degree * m_degreeCount);
 	m_directionY = m_tInfo.fY - m_Radius * cos(m_degree * m_degreeCount);
@@ -34,6 +42,7 @@ int CPlayer::Update()
 
 void CPlayer::Late_Update()
 {
+	m_Satellite->Late_Update();
 }
 
 
@@ -42,10 +51,13 @@ void CPlayer::Render(HDC hDC)
 	Ellipse(hDC, m_tRect.left, m_tRect.top, m_tRect.right, m_tRect.bottom);
 	MoveToEx(hDC, m_tInfo.fX, m_tInfo.fY, nullptr);
 	LineTo(hDC, m_directionX, m_directionY);
+
+	m_Satellite->Render(hDC);
 }
 
 void CPlayer::Release()
 {
+	Safe_Delete<CObj*>(m_Satellite);
 }
 
 void CPlayer::SetBullet(list<CObj*>* _pBulletList)

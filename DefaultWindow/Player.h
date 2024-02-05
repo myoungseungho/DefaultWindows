@@ -1,6 +1,7 @@
 #pragma once
 #include "Obj.h"
 #include "Bullet.h"
+#include "PlayerSatellite.h"
 class CPlayer :	public CObj
 {
 public:
@@ -24,6 +25,7 @@ public:
 private:
 	list<CObj*>* m_pBulletCopy;
 	list<CObj*>* m_pMonsterCopy;
+	CObj* m_Satellite;
 
 	long m_directionX;
 	long m_directionY;
