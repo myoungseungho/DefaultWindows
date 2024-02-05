@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Bullet.h"
 
-CBullet::CBullet()
+CBullet::CBullet() : m_FirePositionX(0.f), m_FirePositionY(0.f)
 {
 }
 
@@ -14,7 +14,7 @@ void CBullet::Initialize()
 {
 	m_tInfo.fCX = 30.f;
 	m_tInfo.fCY = 30.f;
-	m_fSpeed = 8.f;
+	m_fSpeed = 0.5f;
 }
 
 int CBullet::Update()
@@ -28,14 +28,14 @@ int CBullet::Update()
 	case DIR_LEFT:
 		break;
 	case DIR_UP:
-		m_tInfo.fX += (m_DesX - m_InitX) / 100 * m_fSpeed;
-		m_tInfo.fY += (m_DesY - m_InitY) / 100 * m_fSpeed;
+		m_tInfo.fX -= (m_PlayerX - m_FirePositionX) * m_fSpeed;
+		m_tInfo.fY -= (m_PlayerY - m_FirePositionY) * m_fSpeed;
 		break;
 	case DIR_RIGHT:
 		break;
 	case DIR_DOWN:
-		m_tInfo.fX -= (m_DesX - m_InitX) / 100 * m_fSpeed;
-		m_tInfo.fY -= (m_DesY - m_InitY) / 100 * m_fSpeed;
+		m_tInfo.fX += (m_PlayerX - m_FirePositionX) * m_fSpeed;
+		m_tInfo.fY += (m_PlayerY - m_FirePositionY) * m_fSpeed;
 		break;
 	case DIR_LUP:
 		m_tInfo.fX -= m_fSpeed;
@@ -93,9 +93,10 @@ void CBullet::SetMonster(list<CObj*>* _pMonsterCopy)
 
 void CBullet::SetDestination(float x, float y)
 {
-	m_DesX = x;
-	m_DesY = y;
-	m_InitX = m_tInfo.fX;
-	m_InitY = m_tInfo.fY;
+	m_PlayerX = x;
+	m_PlayerY = y;
+
+	m_FirePositionX = m_tInfo.fX;
+	m_FirePositionY = m_tInfo.fY;
 }
 

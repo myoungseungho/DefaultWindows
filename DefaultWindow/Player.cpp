@@ -76,11 +76,11 @@ CObj* CPlayer::CreateBullet(DIRECTION eDir)
 	pBullet->Initialize();
 	//Bullet의 소유권을 갖고 있는 Player의 중심좌표로 설정.
 	//FirePosition을 설정
-	pBullet->Set_Pos(m_tInfo.fX, m_tInfo.fY);
+	pBullet->Set_Pos(m_directionX, m_directionY);
 	//방향에 따른 입력 정보
 	pBullet->Set_Dir(eDir);
 	pBullet->SetMonster(m_pMonsterCopy);
-	pBullet->SetDestination(m_directionX, m_directionY);
+	pBullet->SetDestination(m_tInfo.fX, m_tInfo.fY);
 
 	return pBullet;
 }
