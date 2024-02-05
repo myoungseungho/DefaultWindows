@@ -21,12 +21,13 @@ void CMainGame::Initialize()
 	dynamic_cast<CPlayer*>(m_ObjList[OBJ_PLAYER].front())->SetBullet(&m_ObjList[OBJ_BULLET]);
 
 	//몬스터
-	/*for (size_t i = 0; i < 3; i++)
+	for (size_t i = 0; i < 1; i++)
 	{
-		m_ObjList[OBJ_MONSTER].push_back(CAbstractFactory<CMonster>::Create((i + 1) * 200.f, (i + 1) * 150.f));
+		CObj* monster = CAbstractFactory<CMonster>::Create((i + 1) * 200.f, (i + 1) * 150.f);
+		m_ObjList[OBJ_MONSTER].push_back(monster);
+		dynamic_cast<CMonster*>(monster)->SetPlayer(m_ObjList[OBJ_PLAYER].front());
 	}
-	dynamic_cast<CPlayer*>(m_ObjList[OBJ_PLAYER].front())->SetMonster(&m_ObjList[OBJ_MONSTER]);*/
-
+	dynamic_cast<CPlayer*>(m_ObjList[OBJ_PLAYER].front())->SetMonster(&m_ObjList[OBJ_MONSTER]);
 	//입력시스템
 	if (!m_pInputSystem)
 		m_pInputSystem = CAbstractFactory<CInputSystem>::Create_System();
