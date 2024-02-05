@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Monster.h"
 
-CMonster::CMonster()
+CMonster::CMonster() :m_pPlayerCopy(nullptr)
 {
 }
 
@@ -13,7 +13,7 @@ CMonster::~CMonster()
 void CMonster::Initialize()
 {
 	m_tInfo = { WINCX / 2.f, WINCY / 4.f, 100.f, 100.f };
-	m_fSpeed = 10.f;
+	m_fSpeed = 1.f;
 }
 
 int CMonster::Update()
@@ -21,8 +21,13 @@ int CMonster::Update()
 	if (m_bDead)
 		return OBJ_DEAD;
 
-	m_tInfo.fX -= m_fSpeed;
 	__super::Update_Rect();
+
+	double atan2Value = atan2(m_pPlayerCopy->Get_Info().fY - m_tInfo.fY, m_pPlayerCopy->Get_Info().fX - m_tInfo.fX);
+
+	m_tInfo.fX += m_fSpeed * cos(atan2Value);
+	m_tInfo.fY += m_fSpeed * sin(atan2Value);
+
 
 	return OBJ_NOEVENT;
 }
@@ -30,8 +35,8 @@ int CMonster::Update()
 void CMonster::Late_Update()
 {
 	//Left, Top, Right, Bottom
-	if ((m_tRect.left <= (WINCX - WINCX_SMALL) * 0.5) || m_tRect.right >= WINCX - ((WINCX - WINCX_SMALL) * 0.5))
-		m_fSpeed *= -1.f;
+	//if ((m_tRect.left <= (WINCX - WINCX_SMALL) * 0.5) || m_tRect.right >= WINCX - ((WINCX - WINCX_SMALL) * 0.5))
+	//	m_fSpeed *= -1.f;
 }
 
 void CMonster::Render(HDC hDC)
@@ -41,6 +46,11 @@ void CMonster::Render(HDC hDC)
 
 void CMonster::Release()
 {
+}
+
+void CMonster::SetPlayer(CObj* _pPlayer)
+{
+	m_pPlayerCopy = _pPlayer;
 }
 
 

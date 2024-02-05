@@ -1,32 +1,14 @@
-﻿  Bullet.cpp
-C:\Users\myoun\Documents\DefaultWindows\DefaultWindow\Bullet.cpp(6,13): warning C4244: '초기화 중': 'float'에서 'long'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/Bullet.cpp'을(를) 컴파일하는 중)
+﻿  MainGame.cpp
+C:\Users\myoun\Documents\DefaultWindows\DefaultWindow\MainGame.cpp(96,121): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/MainGame.cpp'을(를) 컴파일하는 중)
   
-C:\Users\myoun\Documents\DefaultWindows\DefaultWindow\Bullet.cpp(6,32): warning C4244: '초기화 중': 'float'에서 'long'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/Bullet.cpp'을(를) 컴파일하는 중)
+C:\Users\myoun\Documents\DefaultWindows\DefaultWindow\MainGame.cpp(96,82): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/MainGame.cpp'을(를) 컴파일하는 중)
   
-C:\Users\myoun\Documents\DefaultWindows\DefaultWindow\Bullet.cpp(24,28): warning C4244: '=': 'double'에서 'long'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/Bullet.cpp'을(를) 컴파일하는 중)
+C:\Users\myoun\Documents\DefaultWindows\DefaultWindow\MainGame.cpp(96,69): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/MainGame.cpp'을(를) 컴파일하는 중)
   
-C:\Users\myoun\Documents\DefaultWindows\DefaultWindow\Bullet.cpp(25,28): warning C4244: '=': 'double'에서 'long'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/Bullet.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\myoun\Documents\DefaultWindows\DefaultWindow\Bullet.cpp(72,28): warning C4244: '=': 'double'에서 'long'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/Bullet.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\myoun\Documents\DefaultWindows\DefaultWindow\Bullet.cpp(73,28): warning C4244: '=': 'double'에서 'long'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/Bullet.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\myoun\Documents\DefaultWindows\DefaultWindow\Bullet.cpp(103,17): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/Bullet.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\myoun\Documents\DefaultWindows\DefaultWindow\Bullet.cpp(102,17): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/Bullet.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\myoun\Documents\DefaultWindows\DefaultWindow\Bullet.cpp(101,17): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/Bullet.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\myoun\Documents\DefaultWindows\DefaultWindow\Bullet.cpp(100,17): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/Bullet.cpp'을(를) 컴파일하는 중)
+C:\Users\myoun\Documents\DefaultWindows\DefaultWindow\MainGame.cpp(96,40): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/MainGame.cpp'을(를) 컴파일하는 중)
   
   DefaultWindow.vcxproj -> C:\Users\myoun\Documents\DefaultWindows\Debug\DefaultWindow.exe
